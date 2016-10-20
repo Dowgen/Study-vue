@@ -4,20 +4,20 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Vue instance</title>
+    <title>Vue之代理</title>
 </head>
 <body>
 <script src="vue.js"></script>
 <script>
     
-    var data = {a:1};
+    var idata = {a:1};
     var vm = new Vue({
-        data:data
+        data:idata
     });
-    console.log(vm.a === data.a);  //true
+    console.log(vm.a === idata.a);  //true
     
     vm.a = 2;
-    console.log(data.a);  //2
+    console.log(idata.a);  //2
 </script>
 </body>
 </html>

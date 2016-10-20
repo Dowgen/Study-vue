@@ -1,0 +1,31 @@
+//Vue的属性与方法都有前缀 $，以便与代理的数据属性区分
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue的$</title>
+</head>
+<body>
+    <div id='example'></div>
+
+<script src="vue.js"></script>
+<script>
+
+    var data = { a: 1 }
+    var vm = new Vue({
+      el: '#example',
+      data: data
+    })
+
+    vm.$data === data // -> true
+    vm.$el === document.getElementById('example') // -> true
+
+    // $watch 是一个实例方法
+    vm.$watch('a', function (newVal, oldVal) {
+      // 这个回调将在 `vm.a`  改变后调用
+    })
+
+</script>
+</body>
+</html>
