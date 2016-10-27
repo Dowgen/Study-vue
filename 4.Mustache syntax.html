@@ -1,0 +1,27 @@
+<!--
+    The mustache tag will be replaced with the value of the msg property on the corresponding data object.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>“Mustache” syntax</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <span id="msg">Message: {{ msg }}</span> <!--  "{{" just like mustache  -->
+    
+<script>
+    
+    var vm = new Vue({
+        el:"#msg", 
+    
+        data: { msg:"txt"}   //把{{msg}} 赋为字符串"txt"
+     });
+
+    vm.msg = 20;   //又把{{msg}}赋为数字 20
+
+</script>
+</body>
+</html>

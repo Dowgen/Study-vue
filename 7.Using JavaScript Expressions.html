@@ -1,0 +1,40 @@
+<!--
+    Vue.js supports the full power of JavaScript expressions inside all data bindings
+    PS:each binding can only contain one single expression,so "{{ var a = 1 }}" will NOT work
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Using JavaScript Expressions</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="main">
+        {{ number + 1 }}
+        {{ ok ? 'YES' : 'NO' }}
+        {{ message.split('').reverse().join('') }}
+        <div v-bind:id="'list-' + id"></div>
+    </div>
+
+</body>
+
+<script>
+    
+    var vm = new Vue({
+        el:"#main", 
+    
+        data: { 
+            number:1,
+            ok: true,
+            message:"abc",
+            id:"gg"
+        }   
+     });
+
+    var a = document.getElementById('list-gg');
+    console.info(a);   //打印结果: <div id="list-gg"></div>
+
+</script>
+</html>

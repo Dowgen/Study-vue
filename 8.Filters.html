@@ -1,0 +1,37 @@
+<!--
+    Filters should be appended to the end of a mustache interpolation, denoted by the “pipe” symbol
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Filters</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="main">
+        {{ message | capitalize }}
+    </div>
+
+</body>
+
+<script>
+    
+    var vm = new Vue({
+        el:"#main", 
+    
+        data: { 
+           message:13 
+        },
+        filters: {
+            capitalize: function (value) {
+                if (value > 100) return "hello";
+                return value;
+            }
+        }   
+     });
+
+    
+</script>
+</html>

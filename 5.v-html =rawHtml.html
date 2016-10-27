@@ -1,0 +1,28 @@
+<!--
+    The double mustaches interprets the data as plain text, not HTML. 
+    In order to output real HTML, you will need to use the v-html directive
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>rawHtml</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+    <div id="msg"v-html="btn">{{msg}}</div>
+    
+<script>
+    
+    var vm = new Vue({
+        el:"#msg", 
+    
+        data: { btn:"<button></button>"}   //用html格式的值 赋给 "btn" 变量
+     });
+
+
+</script>
+</body>
+</html>

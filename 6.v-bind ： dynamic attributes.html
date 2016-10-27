@@ -1,0 +1,29 @@
+<!--
+    Mustaches cannot be used inside HTML attributes, instead use a v-bind directive:
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+    <div v-bind:id="dynamicId"></div>
+    
+<script>
+    
+    var vm = new Vue({
+        el:"div", 
+    
+        data: { dynamicId:"gg"}   //给动态id赋一个静态id~
+     });
+
+    var a = document.getElementById('gg');
+    console.info(a);   //打印结果: <div id="gg"></div>
+
+</script>
+</body>
+</html>
