@@ -1,0 +1,46 @@
+<!--
+    Vue.js provides special shorthands for v-bind and v-on
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Two Shorthands</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    
+<div id="main">
+
+    <!-- full syntax -->
+    <a v-bind:href="url1">full bind</a>
+    <!-- shorthand -->
+    <a :href="url2">short bind</a>
+
+    <!-- full syntax -->
+    <a v-on:click="doSomething1">full on</a>
+    <!-- shorthand -->
+    <a @click="doSomething2">short on</a>
+
+</div>
+
+</body>
+
+<script>
+    
+    var vm = new Vue({
+        el:"#main", 
+    
+        data: { 
+            url1:"http://www.baidu.com",
+            url2:"http://www.qq.com",
+            doSomething1:function(){alert("doSomething1");},
+            doSomething2:function(){alert("doSomething2");}   
+        } 
+    });  
+
+
+</script>
+
+</html>

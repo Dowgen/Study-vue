@@ -1,0 +1,60 @@
+<!--
+    Computed 核心：
+        1.把 属性 的计算放到 ViewModel 实例里做，避免HTML代码过于复杂
+        2.Computed有缓存，相比于method方法，速度更快
+        3.给Computed里的属性赋值时(如fullName = "xxx"),会触发fullName里的set函数。
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Computed</title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+
+    <div id="main">
+        <p>{{ message }}</p>
+        <p>{{ reversedMessage }}</p>    
+    </div>
+    <!--  两个例子的分割线   -->
+        
+    <div id="demo">{{ fullName }}</div>
+
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#main",
+        data:{
+            message:"Hello"   
+        },
+        computed:{  
+            reversedMessage:function(){
+                // `this` points to the vm instance
+                return this.message.split('').reverse().join('');
+            }
+        }
+    });
+/*------------------------两个例子的分割线--------------------------*/
+    var vm = new Vue({
+        el:"#demo",
+        data:{
+            firstName: 'Foo',
+            lastName: 'Bar'
+        },
+        computed:{
+            fullName:{
+                //getter
+                get:function(){
+                    return this.firstName+' '+this.lastName;
+                },
+                set:function(newName){
+                    var names = newName.split(' ');
+                    this.firstName = names[0];
+                    this.lastName = names[names.length - 1];
+                }
+            }
+        }
+    });
+</script>
+</html>

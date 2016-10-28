@@ -1,0 +1,46 @@
+<!--
+    Directives are special attributes with the "v-" prefix
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Directives</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    
+<div id="main">
+
+    <!-- example1: Basic Directives -->
+    <p v-if="seen">Now you see me</p>
+
+    <!-- example2: directives with an argument (href、click) -->
+    <a v-bind:href="url">url</a>
+    <a v-on:click="doSomething">click</a>
+
+    <!-- example3: Modifier /  -->
+    <form v-on:submit.prevent="onSubmit"></form>   
+        <!-- 这里先不管，后面会有详细解释~ -->
+
+</div>
+
+</body>
+
+<script>
+    
+    var vm = new Vue({
+        el:"#main", 
+    
+        data: { 
+            url:"http://www.baidu.com",
+            doSomething:function(){alert("hello");},
+            seen:true
+        } 
+    });  
+
+
+</script>
+
+</html>
