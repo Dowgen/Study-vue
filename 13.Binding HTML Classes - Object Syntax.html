@@ -1,0 +1,35 @@
+<!--
+    We can pass an object to v-bind:class to dynamically toggle classes:
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Binding HTML Classes -- Object Syntax</title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+
+    <div v-bind:class="{ active: isActive, 'text-danger': hasError }"></div>
+    data: {
+        isActive: true,
+        hasError: false
+    }
+
+    <!--  上面的 等价于 下面的，都会渲染成 <div class="active"></div> -->
+    
+    <div v-bind:class="classObject"></div>
+    data: {
+        classObject: {
+            active: true,
+            'text-danger': false
+        }
+    }
+
+   
+
+</body>
+<script type="text/javascript">
+
+</script>
+</html>

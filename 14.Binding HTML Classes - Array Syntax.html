@@ -1,0 +1,24 @@
+<!--
+    We can pass an array to v-bind:class to apply a list of classes
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Binding HTML Classes -- Object Syntax</title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+
+    <div v-bind:class="[activeClass, errorClass]">
+    data: {
+      activeClass: 'active',
+      errorClass: 'text-danger'
+    }
+    <!-- 会编译成 <div class="active text-danger"></div> -->
+    
+
+   
+
+</body>
+</html>
