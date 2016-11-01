@@ -1,0 +1,58 @@
+<!--
+     v-bind:style
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Binding Inline Styles </title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+
+    Obejct Syntax
+    <div id="A" v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"> "A" </div>
+
+    <div id="B" v-bind:style="styleObject"> "B" </div>
+    <!-- A和B是等价的，都会编译成 <div class="active text-danger"></div> -->
+    
+    Array Syntax
+    <div id="C" v-bind:style="[baseStyles, overridingStyles]"> "C" </div>
+
+
+
+   
+
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#A",
+        data: {
+          activeColor: 'red',
+          fontSize: 30
+        }
+    });
+    var vm = new Vue({
+        el:"#B",
+        data: {
+          styleObject: {
+            color: 'blue',
+            fontSize: '50px'
+          }
+        }
+    });
+    var vm = new Vue({
+        el:"#C",
+        data: {
+          baseStyles: {
+            color: 'green',
+            fontSize: '70px'
+          },
+          overridingStyles:{
+            border:'solid 2px green',
+            width:'120px'
+          }
+        }
+    });
+</script>
+</html>

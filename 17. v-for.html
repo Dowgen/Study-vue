@@ -1,0 +1,47 @@
+<!--
+    We can use the v-for directive to render a list of items based on an array
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> v-for </title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+
+    <ul id="example-1">
+        <li v-for="item in items">
+            {{ item.message }}
+        </li>
+    </ul>
+    
+    <ul id="example-2">
+        <li v-for="(item, index) in items">    <!-- 注：index 是Vue内置的 -->
+            {{ parentMessage }} - {{ index }} - {{ item.message }}  
+        </li>
+    </ul>
+
+
+</body>
+<script type="text/javascript">
+    var example1 = new Vue({
+        el: '#example-1',
+        data: {
+        items: [
+            { message: 'Foo' },
+            { message: 'Bar' }]
+        }
+    })
+
+    var example2 = new Vue({
+      el: '#example-2',
+      data: {
+        parentMessage: 'Parent',
+        items: [
+            { message: 'Foo' },
+            { message: 'Bar' }]
+      }
+    })
+</script>
+</html>

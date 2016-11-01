@@ -1,0 +1,25 @@
+<!--
+    v-for can also take an integer. In this case it will repeat the template that many times.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Range v-for</title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+
+    <div>
+      <span v-for="n in 10"> {{ n  }}  </span>   <!--  result:1 2 3 4 5 6 7 8 9 10 -->
+    </div>
+
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: 'div',
+        data: {
+        }
+    });
+</script>
+</html>

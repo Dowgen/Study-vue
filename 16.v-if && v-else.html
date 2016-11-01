@@ -1,0 +1,25 @@
+<!--
+    v-if & v-else decide which to show
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> v-if && v-else</title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+    <div id="main">
+    <h1 v-if="ok">Yes</h1>
+    <h1 v-else>No</h1>
+    </div>
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#main",
+        data:{
+            ok:true
+        }
+    })
+</script>
+</html>

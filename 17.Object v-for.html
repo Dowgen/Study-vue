@@ -1,0 +1,32 @@
+<!--
+    You can also use v-for to iterate through the properties of an object.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object v-for</title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+
+    <ul id="repeat-object" class="demo">
+        <li v-for="(value, key, index) in object">
+            {{ index }}、{{ key }} : {{ value }}
+        </li>
+    </ul>
+
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#repeat-object',
+        data: {
+            object: {
+                FirstName: 'John',
+                LastName: 'Doe',
+                Age: 30
+            }
+        }
+    });
+</script>
+</html>

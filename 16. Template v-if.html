@@ -1,0 +1,28 @@
+<!--
+    Template v-if could toggle more than one element
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Template v-if </title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+    <div id="main">
+        <template v-if="ok">
+          <h1>Title</h1>
+          <p>Paragraph 1</p>
+          <p>Paragraph 2</p>
+        </template>
+    </div>
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#main",
+        data:{
+            ok:false
+        }
+    })
+</script>
+</html>
