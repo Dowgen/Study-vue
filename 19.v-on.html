@@ -1,0 +1,46 @@
+<!--
+    We can use the v-on directive to 
+        listen to DOM events and run some JavaScript when they’re triggered.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on </title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+
+    <div id="main">
+    <!-- example 1 : 变量-->
+       <button v-on:click=" counter += 1 "> Add 1 </button> 
+       <p>The button above has been clicked {{ counter }} times.</p>
+
+    <!-- example 2 : 不带参函数-->
+        <button v-on:click="greet">Greet</button>
+
+    <!-- example 3 : 带参函数-->
+        <button v-on:click="say('hi')">Say hi</button> 
+        <button v-on:click="say('what')">Say what</button>
+    </div>
+
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#main',
+        data: {
+            counter: 0
+        },
+        methods:{
+            greet: function (event) {
+                // `event` is the native DOM event
+                alert(event.target)
+            },
+            say:function(message){
+                alert(message)
+            }
+        }
+    });
+
+</script>
+</html>

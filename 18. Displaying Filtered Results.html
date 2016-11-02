@@ -1,0 +1,33 @@
+<!--
+    display a filtered or sorted version of an array 
+        without actually mutating or resetting the original data
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Displaying-Filtered-Sorted-Results</title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+
+    <ul id="main">
+       <li v-for="n in evenNumbers">{{ n }}</li>
+    </ul>
+
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#main',
+        data: {
+            numbers:[1,2,3,4,5,6]
+        },
+        computed:{
+            evenNumbers:function(){
+                return this.numbers.filter( function(n){return n%2===0} )
+            }
+        }
+    });
+
+</script>
+</html>

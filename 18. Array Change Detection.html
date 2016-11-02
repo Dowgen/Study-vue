@@ -1,0 +1,51 @@
+<!--
+    push()、pop()、shift()、unshift()、splice()、sort()、reverse()
+    这些方法会改变原来的 array，并自动触发 view 的更新。
+
+    filter()、concat()、slice()
+    这几个方法不会更改原数组，只会返回新的 array，只能做个赋值才会触发view更新，
+    如：
+        vm.items = vm.items.filter(function (item) {
+            return item.message.match(/Foo/);
+        });
+
+    PS: vm.items[index] = newValue 和 
+        vm.items.length = newLength 无法触发view更新，可改用 
+            Vue.set(vm.items, index, newValue)  和
+            vm.items.splice(newLength)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Change Detection</title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+
+    <ul id="main">
+        <li v-for="item in items">
+            {{ item.message }}
+        </li>
+    </ul>
+
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#main',
+        data: {
+            items:[
+            { message:'Foo1'},
+            { message:'Foo2'}]
+        }
+    });
+
+    vm.items.push({ message: 'Foo3' });
+    vm.items.push({ message: 'Fxoo4' });
+    vm.items.shift();
+
+    vm.items = vm.items.filter(function (item) {
+      return item.message.match(/Foo/);
+    });
+</script>
+</html>
