@@ -1,0 +1,58 @@
+<!--
+    键盘事件：v-on:keyup.xxx = ""
+    所有键盘事件：
+        enter
+        tab
+        delete (captures both “Delete” and “Backspace” keys)
+        esc
+        space
+        up
+        down
+        left
+        right
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Key Modifiers </title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+
+    <div id="main">
+        <!-- only call vm.submit() when the keyCode is 13 -->
+        <input v-on:keyup.13="submit1">
+
+        <!-- same as above -->
+        <input v-on:keyup.enter="submit2">
+
+        <!-- also works for shorthand -->
+        <input @keyup.enter="submit3">
+
+    </div>
+
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#main",
+        data:{},
+        methods:{
+            submit1:function(){
+                console.log(event.key);
+            },
+            submit2:function(){
+                console.log(event.key);
+            },
+            submit3:function(){
+                console.log(event.key);
+            }
+        }
+    })
+
+
+    // enable v-on:keyup.f1
+    Vue.config.keyCodes.f1 = 112
+
+</script>
+</html>

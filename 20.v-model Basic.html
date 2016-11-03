@@ -1,0 +1,119 @@
+<!--
+    v-model and Checkbox / Radio / Select
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Checkbox / Radio / Select </title>
+    <script type="text/javascript"src="vue.js"></script>
+    <style type="text/css">
+        *{
+            font-size: 23px;
+        }
+    </style>
+</head>
+<body>
+
+        <!-- checkbox -->
+        <div id="main1">
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{ checked }}</label><br>
+        </div><hr>
+        <!-- Multiple checkboxes -->
+        <div id="main2">
+            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+            <label for="john">John</label>
+            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+            <label for="mike">Mike</label>
+            <br>
+            <span>Checked names: {{ checkedNames }}</span>
+        </div><hr>
+        <!-- Radio -->
+        <div id="main3">
+            <input type="radio" id="one" value="One" v-model="picked">
+            <label for="one">One</label>
+            <br>
+            <input type="radio" id="two" value="Two" v-model="picked">
+            <label for="two">Two</label>
+            <br>
+            <span>Picked: {{ picked }}</span>
+        </div><hr>
+        <!-- Select -->
+        <div id="main4">
+            <select v-model="selected">
+                <option>Great</option>
+                <option>Good</option>
+                <option>SoSo</option>
+            </select>
+            <span>Selected: {{ selected }}</span>
+        </div><hr>
+        <!-- Multiple select -->
+        <div id="main5">
+            <select v-model="selected" multiple>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <br>
+            <span>Selected: {{ selected }}</span>
+        </div><hr>
+        <!-- Dynamic options rendered with v-for -->
+        <div id="main6">
+            <select v-model="selected">
+                <option v-for="option in options" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <span>Selected: {{ selected }}</span>
+        </div>
+
+</body>
+<script type="text/javascript">
+    var vm1 = new Vue({
+        el:"#main1",
+        data:{
+            checked:"false"
+        }
+    });
+    var vm2 = new Vue({
+        el:"#main2",
+        data:{
+            checkedNames:[]
+        }
+    });
+    var vm3 = new Vue({
+        el:"#main3",
+        data:{
+            picked:""
+        }
+    });
+    var vm4 = new Vue({
+        el:"#main4",
+        data:{
+            selected:""
+        }
+    });
+    var vm5 = new Vue({
+        el:"#main5",
+        data:{
+            selected:[]
+        }
+    });
+    var vm6 = new Vue({
+        el: '#main6',
+        data: {
+            selected: 'A',
+            options: [
+              { text: 'One', value: 'A' },
+              { text: 'Two', value: 'B' },
+              { text: 'Three', value: 'C' }
+            ]
+        }
+    })
+
+
+</script>
+</html>
