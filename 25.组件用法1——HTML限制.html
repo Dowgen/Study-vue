@@ -1,0 +1,43 @@
+<!--
+    像这些元素 <ul> ， <ol>， <table> ， <select> 限制了能被它包裹的元素
+    PS:
+        使用来自以下来源之一的字符串模板，这些限制将不适用：
+            <script type="text/x-template">
+            JavaScript内联模版字符串
+            .vue 组件
+        因此，有必要的话请使用字符串模版。
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Using Components - limit </title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+    
+    <div id="main">
+        <!--  错误使用 -->
+        <table>
+            <my-row>...</my-row>
+        </table>
+    
+        <!--  正确使用 -->
+        <table>
+            <tr is="my-row"></tr>
+        </table>
+    </div>
+
+</body>
+<script type="text/javascript">
+    var Child = {
+        template:'<div>Hello!</div>'
+    };
+    var vm = new Vue({
+        el:"#main",
+        components:{
+            'my-row': Child
+        }
+    })
+</script>
+</html>

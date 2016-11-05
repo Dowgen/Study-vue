@@ -1,0 +1,36 @@
+<!--
+    bind the value to a dynamic property
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model Value Bindings</title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+    
+    <!--************  Basic usage  *************-->
+    <!-- `picked` is a string "a" when checked -->
+    <input type="radio" v-model="picked" value="a">
+    <!-- `toggle` is either true or false -->
+    <input type="check" v-model="toggle">
+    <!-- `selected` is a string "abc" when selected -->
+    <select v-model="selected">
+    
+
+    <!--************  or we can use v-bind！ ************-->
+    <input type="checkbox" v-model="toggle" 
+        v-bind:true-value="a" v-bind:false-value="b">
+
+    <input type="radio" v-model="pick" v-bind:value="a">
+
+    <select v-model="selected">
+      <!-- inline object literal -->
+      <option v-bind:value="{ number: 123 }">123</option>  <!--  typeof vm.selected // -> 'object' -->
+    </select>                                              <!--  vm.selected.number // -> 123      -->
+
+        <option value="abc">ABC</option>
+    </select>
+</body>
+</html>

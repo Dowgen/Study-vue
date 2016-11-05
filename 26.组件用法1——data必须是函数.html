@@ -1,0 +1,33 @@
+<!--
+    组件的data必须时函数
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data必须是函数 </title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+    
+    <div id="example-2">
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+    </div>
+
+</body>
+<script type="text/javascript">
+    Vue.component('simple-counter', {
+        
+        template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+
+        data: function () {
+            return {counter: 0}
+        }
+    })
+    new Vue({
+        el: '#example-2'
+    })
+</script>
+</html>

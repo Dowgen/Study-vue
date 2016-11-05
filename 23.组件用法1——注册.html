@@ -1,0 +1,27 @@
+<!--
+    注册组件: Vue.component(tagName, options){}
+    PS: 注册组件需要在 new Vue实例之前进行。
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Using Components - Registration </title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+    
+    <div id="example">
+        <my-component></my-component>
+    </div>
+    
+</body>
+<script type="text/javascript">
+    Vue.component('my-component',{
+        template:'<div>Hello!</div>'
+    });
+    var vm = new Vue({
+        el:"#example"
+    })
+</script>
+</html>

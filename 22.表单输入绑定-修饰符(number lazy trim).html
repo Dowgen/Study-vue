@@ -1,0 +1,24 @@
+<!--
+    表单输入的修饰符 lazy / number / trim
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifiers</title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+    
+    <!-- synced after "change" instead of "input" -->
+    <input v-model.lazy="msg" >
+
+    <!-- user input automatically typecast as a number -->
+    <input v-model.number="age" type="number">  <!-- PS:the value of HTML input elements always returns a string -->
+    
+    <!-- 去左右空格 -->
+    <input v-model.trim="msg">
+
+
+</body>
+</html>
