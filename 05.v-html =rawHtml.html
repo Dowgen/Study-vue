@@ -12,14 +12,14 @@
 </head>
 <body>
 
-    <div id="msg"v-html="btn">{{msg}}</div>
+    <div id="msg"v-html="btn"></div>
     
 <script>
     
     var vm = new Vue({
         el:"#msg", 
     
-        data: { btn:"<button></button>"}   //用html格式的值 赋给 "btn" 变量
+        data: { btn:"<button>Button</button>"}   //用html格式的值 赋给 "btn" 变量
      });
 
 
