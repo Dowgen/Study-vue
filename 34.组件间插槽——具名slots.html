@@ -1,0 +1,61 @@
+<!--
+    <slot> 元素可以用一个特殊的属性 name 来配置如何分发内容
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 具名Slots </title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+    <div id="main">
+      <my-component>
+        <h1 slot="header">Title</h1>
+        <p>Main content</p>
+        <p>Something else</p>
+        <p slot="footer">Some info</p>
+      </my-component>
+
+      <!-- 以上将被渲染成 
+        <div class="container">
+          <header>
+              <h1>Title</h1>
+          </header>
+          <main>
+              <p>Main content</p>
+              <p>Something else</p>
+          </main>
+          <footer>
+              <p>Some info</p>
+          </footer>
+        </div>
+        
+      -->
+    </div>
+
+</body>
+<script type="text/javascript">
+
+    Vue.component('my-component', {
+      template: `
+      <div class="container">
+          <header>
+              <slot name="header"></slot>
+          </header>
+          <main>
+              <slot></slot>
+          </main>
+          <footer>
+              <slot name="footer"></slot>
+          </footer>
+      </div>
+      `,
+    })
+    new Vue({
+        el: '#main',
+        data: { 
+        }
+    })
+</script>
+</html>

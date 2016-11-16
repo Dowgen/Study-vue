@@ -1,0 +1,51 @@
+<!--
+    自定义事件——> 货币输入表单
+   PS:子组件有独立作用域，无法使用父组件的属性，因此要在props里定义自己的属性。
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>货币输入表单 </title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+    <div id="main">
+      <currency-input ></currency-input>
+    </div>
+
+</body>
+<script type="text/javascript">
+
+    Vue.component('currency-input', {
+      template: '\
+        <span>\
+          $\
+          <input\
+            ref="input"\
+            v-bind:value="value"\
+            v-on:input="updateValue($event.target.value)"\
+          >\
+        </span>\
+      ',
+      props: ['value'],
+      methods: {
+        
+        updateValue: function (value) {
+          var formattedValue = value.trim().slice(0, value.indexOf('.') + 3)
+    
+          if (formattedValue !== value) {
+            this.$refs.input.value = formattedValue
+          }
+          // Emit the number value through the input event
+          this.$emit('input', Number(formattedValue))
+        }
+      }
+    })
+    new Vue({
+        el: '#main',
+        data: { 
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!--
+    1.除非子组件模板包含至少一个 <slot> 插口，否则父组件的内容将会被丢弃
+    2.当子组件模板只有一个没有属性的 slot 时，
+        父组件整个内容片段将插入到 slot 所在的 DOM 位置，并替换掉 slot 标签本身
+    3.最初在 <slot> 标签中的任何内容都被视为备用内容。备用内容在子组件的作用域
+        内编译，并且只有在宿主元素为空，且没有要插入的内容时才显示备用内容。
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用Slots </title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+    <div id="main">
+      <div>
+        <h1>I'm the parent title</h1>
+        <my-component>
+          <p>This is some original content</p>
+          <p>This is some more original content</p>
+        </my-component>
+      </div>
+
+      <!-- 以上将被渲染成 
+        <div>
+          <h1>I'm the parent title</h1>
+          <div>
+            <h2>I'm the child title</h2>
+            <p>This is some original content</p>
+            <p>This is some more original content</p>
+          </div>
+        </div>
+        因为 my-component（子组件）之间的内容<p></p>（属于父组件）,
+        渲染时被直接插到 my-componet的 slot里。
+      -->
+    </div>
+
+</body>
+<script type="text/javascript">
+
+    Vue.component('my-component', {
+      template: `
+      <div>
+          <h2>I'm the child title</h2>
+          <slot>
+            如果没有分发内容则显示我。
+          </slot>
+      </div>
+      `,
+    })
+    new Vue({
+        el: '#main',
+        data: { 
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态组件</title>
+    <script type="text/javascript"src="vue.js"></script>
+</head>
+<body>
+    <div id="main">
+        <component v-bind:is="currentView">
+            <!-- 组件在 vm.currentview 变化时改变！ -->
+        </component>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+      el: '#main',
+      data: {
+        currentView: 'archive'
+      },
+      components: {
+        home: { template:'<h1>1!</h1>' },
+        posts: { template:'<h1>2!</h1>' },
+        archive: { template:'<h1>3!</h1>' }
+      }
+    })
+</script>
+</html>
